@@ -3,79 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-   <style>
-   .cta {
-    position: relative;
-    margin: auto;
-    margin-left: 450px;
-    padding: 12px 18px;
-    transition: all 0.2s ease;
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
-  
-  .cta:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    border-radius: 50px;
-    background: #b1dae7;
-    width: 45px;
-    height: 45px;
-    transition: all 0.3s ease;
-  }
-  
-  .cta span {
-    position: relative;
-    font-family: "Ubuntu", sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: #234567;
-  }
-  
-  .cta svg {
-    position: relative;
-    top: 0;
-    margin-left: 10px;
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke: #234567;
-    stroke-width: 2;
-    transform: translateX(-5px);
-    transition: all 0.3s ease;
-  }
-  
-  .cta:hover:before {
-    width: 100%;
-    background: #b1dae7;
-  }
-  
-  .cta:hover svg {
-    transform: translateX(0);
-  }
-  
-  .cta:active {
-    transform: scale(0.95);
-  }</style>
+    <title>Sports and Health Calculators</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(to right, #1f4037, #99f2c8);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+       
+section:hover {
+  transform: scale(1.05);
+}
+
+
+
+        section {
+          transition: .6s ease-in-out;
+          text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            color: #1f4037;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            max-width: 350px;
+            padding: 10px;
+            border: 2px solid #1f4037;
+            border-radius: 5px;
+            outline: none;
+            font-size: 1em;
+        }
+        input:focus, select:focus {
+            border-color: #99f2c8;
+        }
+        button {
+            background-color: #1f4037;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #3da05c;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.3em;
+            color: #1f4037;
+            text-align: center;
+        }
+        img {
+            margin-top: 20px;
+            border-radius: 10px;
+            max-width: 100%;
+        }
+    </style>
 </head>
-<header><h1 style="text-align: center;">Welcome to the Dashboard</h1></header>
-<hr>
 <body>
-    <a href="calculate.html">
-        <button class="cta" type="button">
-          <span>Go to Calculation Options</span>
-          <svg width="15px" height="10px" viewBox="0 0 13 10">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-          </svg>
-        </button>
-      </a>
-      
+    <header>
+        <h1>Sports and Health Calculators</h1>
+        <img src="https://via.placeholder.com/800x200.png?text=Stay+Healthy+and+Fit" alt="Stay Healthy and Fit">
+    </header>
+
+    <main>
+        <!-- Performance Calculator Section -->
+        <section>
+            <h2>Sports Performance Calculator</h2>
+            <form id="performanceForm">
+                <label for="distance">Distance (meters):</label>
+                <input type="number" id="distance" placeholder="Enter distance" required>
+
+                <label for="time">Time (seconds):</label>
+                <input type="number" id="time" placeholder="Enter time" required>
+
+                <button type="submit">Calculate Performance</button>
+            </form>
+            <p id="performanceResult"></p>
+        </section>
+
+        <!-- BMI Calculator Section -->
+        <section>
+            <h2>BMI Calculator</h2>
+            <form id="bmiForm">
+                <label for="bmiWeight">Weight (kg):</label>
+                <input type="number" id="bmiWeight" placeholder="Enter weight" required>
+
+                <label for="bmiHeight">Height (cm):</label>
+                <input type="number" id="bmiHeight" placeholder="Enter height" required>
+
+                <button type="submit">Calculate BMI</button>
+            </form>
+            <p id="bmiResult"></p>
+        </section>
+
+        <!-- Calorie Calculator Section -->
+        <section>
+            <h2>Calorie Calculator</h2>
+            <form id="calorieForm">
+                <label for="calorieAge">Age (years):</label>
+                <input type="number" id="calorieAge" placeholder="Enter your age" required>
+
+                <label for="calorieWeight">Weight (kg):</label>
+                <input type="number" id="calorieWeight" placeholder="Enter your weight" required>
+
+                <label for="calorieHeight">Height (cm):</label>
+                <input type="number" id="calorieHeight" placeholder="Enter your height" required>
+
+                <label for="activity">Activity Level:</label>
+                <select id="activity">
+                    <option value="1.2">Sedentary (little or no exercise)</option>
+                    <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
+                    <option value="1.55">Moderately active (exercise 3-5 days/week)</option>
+                    <option value="1.725">Very active (hard exercise 6-7 days a week)</option>
+                    <option value="1.9">Super active (very hard exercise, physical job)</option>
+                </select>
+
+                <button type="submit">Calculate Calories</button>
+            </form>
+            <p id="calorieResult"></p>
+        </section>
+    </main>
+
+    <script>
+        // Performance Calculator
+        document.getElementById('performanceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const distance = parseFloat(document.getElementById('distance').value);
+            const time = parseFloat(document.getElementById('time').value);
+            const speed = (distance / time).toFixed(2);
+            document.getElementById('performanceResult').innerText = `Your speed is ${speed} m/s.`;
+        });
+
+        // BMI Calculator
+        document.getElementById('bmiForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const weight = parseFloat(document.getElementById('bmiWeight').value);
+            const height = parseFloat(document.getElementById('bmiHeight').value) / 100;
+            const bmi = (weight / (height ** 2)).toFixed(2);
+            document.getElementById('bmiResult').innerText = `Your BMI is ${bmi}`;
+        });
+
+        // Calorie Calculator
+        document.getElementById('calorieForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const age = parseInt(document.getElementById('calorieAge').value);
+            const weight = parseFloat(document.getElementById('calorieWeight').value);
+            const height = parseFloat(document.getElementById('calorieHeight').value);
+            const activity = parseFloat(document.getElementById('activity').value);
+
+            const bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+            const dailyCalories = (bmr * activity).toFixed(2);
+            document.getElementById('calorieResult').innerText = `Your estimated daily caloric needs are ${dailyCalories} calories.`;
+        });
+    </script>
 </body>
 </html>
