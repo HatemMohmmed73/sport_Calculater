@@ -64,7 +64,7 @@ app.post('/login', async (req, res) => {
         }
 
         // Redirect to the calculation page
-        res.redirect('/calculate.html'); // Ensure this is the correct page you want to redirect to
+        res.redirect('/dashboard.html'); // Ensure this is the correct page you want to redirect to
     } catch (error) {
         console.error('Error during login:', error);
         res.status(500).send({ message: 'Server error' });
