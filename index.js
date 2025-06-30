@@ -38,7 +38,7 @@ app.post('/register', async (req, res) => {
             return res.status(409).send({ message: 'Username already exists' });
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const hashedPassword = await bcrypt.hash(password, 12);
         const user = new User({ username, password: hashedPassword });
         await user.save();
         res.status(201).send({ message: 'User registered successfully' });
